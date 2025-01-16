@@ -1,0 +1,106 @@
+                                        Collection<E>
+	Set<E>                                                 	List<E>(List是有顺序的，可重复的)
+	通过			    	通过
+	HashSet                                                   ArrayList 类似于传统的数组，
+	TreeSet                                                    LinkedList 类似于传统的链表
+	实现                                                         实现
+			Map<E,V>(Map是通过键值对进行取值的 是一个存储键值对的容器接口
+					key和value是一一对应的，元素不允许重复)
+		HashMap(线程不安全)                                                HashTable(线程安全)
+		(使用hash映射来存取数据是O(1)的速度)    
+
+Collection、Set、List和Map都是接口，不能被实例化
+Set和List都继承自Collection，而Map则和Collection没什么关系
+Set和List的区别在于Set不能重复，而List可以重复
+Map和List与Set的区别在于，Map是存取键值对，而另外两个则是保存一个元素      
+
+string的值不可修改，修改的时候是修改了引用对象
+字符流：针对文本文件,读写容易出现乱码的现象,在读写时,最好指定编码集为UTF-8
+字节流： 针对二进制文件
+
+mysql的索引的作用：保证数据的唯一性
+		加快检索速度
+		加快表之间的链接
+		显著减少查询中分组和排序的时间
+		提高系统性能
+
+springboot解析yml文件的操作国策
+	resource下创建配置文件
+driverClassName=com.mysql.jdbc.Driver
+url=jdbc:mysql://localhost:3306/jdbcstudy
+username=root
+password=XDP
+
+ACID 原子性、一致性、隔离性、持久性
+笛卡尔查询：
+select *from 表名1，表名2（where 两个表中两个表中相互关联的字段,并且作为条件使用）
+
+			只显示符合条件的数据  |左边表中的数据优先全部显示|右边表中的数据优先全部显示
+链接查询：select 字段列表 from 表1INNER|LEFT|RIGHT JOIN 表2 on 表1.字段=表2.字段
+UNION 和 UNION ALL 的区别:UNION 会去掉重复的数据,而 UNION ALL 则直接显示结果
+#1.多表联合查询方式:
+select * from person p1,dept d2 where p1.did = d2.did  
+    and d2.dname='python' 
+    and  age>20 
+    and salary <40000 
+ORDER BY salary DESC;
+
+#2.内连接查询方式:
+SELECT * FROM person p1 INNER JOIN dept d2 ON p1.did= d2.did 
+    and d2.dname='python' 
+    and  age>20 
+    and salary <40000 
+ORDER BY salary DESC;    
+
+SSM：https://blog.csdn.net/qq382495414/article/details/81131136
+	https://blog.csdn.net/liewen_/article/details/89524429
+SpringCloud的核心组件：微服务治理解决方案
+	注册 Eureka、Nacos
+	服务 Springcloud gateway Zuul
+	配置 Springcloud config Nacos
+	限流 Springcloud gateway Sentinel
+	熔断：Sentinel
+	调用追踪： Zipkin
+	远程服务 Feign Dubbo
+
+springmvc可以看成是servlet的封装，首先需要建立一个java web项目，
+通过web.xml的配置接入springmvc入口，并且最终要将java web项目部署到容器中（比如tomcat）；
+ 而springboot则可以直接看成是一个tomcat和java web应用的集装箱，你只需要按照约定配置好
+核心配置文件（比如application.yml），写好你的控制器（controller），然后再加上一个main方法，
+就可以直接启动 tomcat+你的应用，部署后，也是直接用jar命令来启动一个Jar包这样的形式。
+
+Docker
+Docker 属于 Linux 容器的一种封装，提供简单易用的容器使用接口。
+它是目前最流行的 Linux 容器解决方案。
+
+我们简单地理解Docker，就是一个集装箱，比如在下面的图中，
+实际每个微服务的运行都需要有一系列的程序来支撑，那么Docker的作用就是将 
+下面红框内的 jdk,mysql,springboot等打包成一个单独的Docker包，然后运行起来，
+对外映射出springboot的服务端口，提供服务。这样方便在不同操作系统或者环境中迁移和部署，
+只需要简单的几个Docker命令，就可以一键搭建好一套微服务。而不需要从安装各种基础软件开始。
+
+redis NoSQL数据库 C k-v键值对存
+五种数据类型：String类型 哈希类型 列表类型 集合类型 和顺序集合类型
+
+static：
+静态方法中不可以使用this关键字
+不能将方法体内的局部变量声明为static
+静态只能调静态
+非静态不能被静态调用(动态可以调用静态，静态可以调静态)
+静态资源不存在重写现象
+修饰成员变量
+static最常用的功能就是修饰类的属性和方法，让他们成为类的成员属性和方法，
+我们通常将用static修饰的成员称为类成员或者静态成员 从而共享
+修饰成员方法
+将其变为类方法
+static修饰成员方法最大的作用，就是可以使用"类名.方法名"的方式操作方法，常用于工具类
+静态代码块
+优先于其他模块加载将多个类成员放在一起初始化，
+使得程序更加规整，其中理解对象的初始化过程非常关键；
+静态导包
+将类的方法直接导入到当前类中，从而直接使用“方法名”即可调用类方法，更加方便。
+
+mybatis的原理：
+https://blog.csdn.net/u014745069/article/details/80788127
+
+分布式：https://www.jianshu.com/p/d7ca17251ee7
